@@ -21,7 +21,6 @@ class QuoteViewModel: ViewModel() {
     private val _errorMessage = MutableLiveData<String?>()
     val errorMessage: LiveData<String?> get() = _errorMessage
 
-
     init {
         getQuote()
     }
@@ -34,12 +33,12 @@ class QuoteViewModel: ViewModel() {
 
             try {
                 Log.d("quoteviewmodel", "Getting Kanye Quote")
-                QuoteApi = QuoteApi.getInstance()
-                val theQuote = QuoteApi.sayQuote(Quote)
+                quoteApi = QuoteApi.getInstance()
+                val theQuote = quoteApi.getQuote()
                 _QuoteList.postValue(theQuote)
                 Log.d("quoteviewmodel", "got Kanye Quote")
 
-            } catch (e:Exception){
+            } catch (e: Exception) {
                 Log.d("quoteviewmodel - Virhe", e.message.toString())
                 _errorMessage.postValue(e.message) // Post the error message
             }

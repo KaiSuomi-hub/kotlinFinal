@@ -8,9 +8,11 @@ import java.time.format.DateTimeFormatter
 import com.example.kotlinfinal.model.theQuote
 
 class sayQuoteViewmodel : ViewModel() {
-
     companion object {
         @RequiresApi(Build.VERSION_CODES.O)
-        fun sayQuote(): String {}
+        fun sayQuote(): String {
+            // Implementation here if needed
+            return "This is a placeholder quote."
+        }
     }
 }

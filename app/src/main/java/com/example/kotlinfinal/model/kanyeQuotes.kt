@@ -4,8 +4,13 @@ package com.example.kotlinfinal.model
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.example.kotlinfinal.viewmodel.getQuote
-import com.example.kotlinfinal.viewmodel.sayQuote
+import com.example.kotlinfinal.viewmodel.sayQuoteViewmodel
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.awaitResponse
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -17,10 +22,9 @@ data class theQuote(
 
 const val BASE_URL = "https://api.kanye.rest/"
 
-interface QuoteApi{
-
+interface QuoteApi {
     @GET("quote")
-    suspend fun getQuote(@Query("quote") quote: String): theQuote
+    suspend fun getQuote(): theQuote
 
     companion object {
         private var QUOTEService: QuoteApi? = null
@@ -34,7 +38,6 @@ interface QuoteApi{
                     .build().create(QuoteApi::class.java)
             }
             return QUOTEService!!
-
         }
     }
 }

@@ -49,11 +49,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.compose.composable
+//import androidx.navigation.NavController
+//import androidx.navigation.compose.NavHost
+//import androidx.navigation.compose.rememberNavController
+//import androidx.navigation.compose.composable
 import com.example.kotlinfinal.R
+import com.example.kotlinfinal.model.QuoteApi
 import com.example.kotlinfinal.model.theQuote
 import com.example.kotlinfinal.viewmodel.sayQuoteViewmodel
 import com.example.kotlinfinal.viewmodel.QuoteViewModel
@@ -66,8 +67,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            EpriceTheme {
-                EpriceApp()
+            KotlinFinalTheme {
+                QuoteApp()
             }
         }
     }
@@ -75,7 +76,7 @@ class MainActivity : ComponentActivity() {
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun EpriceApp() {
+fun QuoteApp() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
@@ -84,8 +85,8 @@ fun EpriceApp() {
         composable(route = "Home") {
             MainScreen(navController)
         }
-        composable(route = "Aika") {
-            TimeScreen(navController)
+        composable(route = "Quote") {
+            QuoteScreen(navController)
         }
 
     }
@@ -96,7 +97,7 @@ fun EpriceApp() {
 fun MainTopBar(title: String, navController: NavController) {
     var expanded by remember { mutableStateOf(false) }
     TopAppBar(
-        title = { Text(text = stringResource(R.string.s_hk_n_hinta_nyt)) },
+            title = { Text(text = stringResource(R.string.fresh)) },
 
         actions = {
             IconButton(
