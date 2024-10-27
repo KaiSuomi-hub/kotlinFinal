@@ -1,4 +1,5 @@
 package com.example.kotlinfinal.ui
+
 import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,7 +16,15 @@ import com.example.kotlinfinal.ui.MainScreen
 import com.example.kotlinfinal.ui.SettingsScreen
 import com.example.kotlinfinal.ui.InfoScreen
 
+/**
+ * Main activity for the application.
+ */
 class MainActivity : ComponentActivity() {
+    /**
+     * Called when the activity is starting.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState(Bundle).
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -23,16 +32,17 @@ class MainActivity : ComponentActivity() {
             val uiViewModel: UiViewModel = viewModel()
 
             KotlinFinalTheme(darkTheme = uiViewModel.isDarkTheme.value) {
-
-                    QuoteApp(uiViewModel = uiViewModel)
-                }
+                QuoteApp(uiViewModel = uiViewModel)
             }
         }
     }
+}
 
-
-
-
+/**
+ * Composable function to set up the navigation for the Quote application.
+ *
+ * @param uiViewModel The ViewModel that provides the UI state.
+ */
 @Composable
 fun QuoteApp(uiViewModel: UiViewModel) {
     val navController = rememberNavController()
@@ -47,7 +57,7 @@ fun QuoteApp(uiViewModel: UiViewModel) {
                 navController = navController,
                 isDarkTheme = uiViewModel.isDarkTheme.value,
                 onThemeChange = { uiViewModel.toggleTheme(it) },
-              )
+            )
         }
     }
 }

@@ -3,7 +3,7 @@ package com.example.kotlinfinal.viewmodel
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.kotlinfinal.model.TheQuote
+import com.example.kotlinfinal.model.QuoteResponse
 import com.example.kotlinfinal.model.QuoteApi
 import kotlinx.coroutines.launch
 import android.util.Log
@@ -46,7 +46,7 @@ class QuoteViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val quoteApi = QuoteApi.getInstance()
-                val response = TheQuote(quoteApi.getQuote().quote)
+                val response = quoteApi.getQuote()
 
                 Log.d("QuoteModel", "API response: $response")
                 Log.d("QuoteViewModel", "Quote is : ${response.quote}")

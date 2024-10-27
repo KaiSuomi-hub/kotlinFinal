@@ -1,16 +1,18 @@
 package com.example.kotlinfinal.ui
 
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+/**
+ * Composable function to display a quote inside a card.
+ *
+ * @param quote The quote text to be displayed.
+ */
 @Composable
 fun QuoteItem(quote: String) {
-
-
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -34,9 +36,6 @@ fun QuoteItem(quote: String) {
             )
 
             Spacer(modifier = Modifier.height(8.dp))
-
-
-                }
-            }
         }
-
+    }
+}
