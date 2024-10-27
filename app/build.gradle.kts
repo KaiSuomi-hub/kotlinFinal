@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
- }
+
+}
 
 android {
     namespace = "com.example.kotlinfinal"
@@ -35,6 +36,11 @@ android {
     buildFeatures {
         compose = true
     }
+
+    viewBinding {
+
+    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }

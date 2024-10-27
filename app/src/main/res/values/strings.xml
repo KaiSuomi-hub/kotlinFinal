@@ -10,4 +10,6 @@
     <string name="about">About this app:</string>
     <string name="about2">Drops random Yeets</string>
     <string name="no_quotes">No yeets available!</string>
+    <string name="quote">this is not working</string>
+    <string name="quotes">{quote:yes}</string>
 </resources>
