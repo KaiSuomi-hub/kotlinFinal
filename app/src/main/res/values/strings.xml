@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Kanye Yeets!!</string>
     <string name="fresh">New quote</string>
+    <string name="Settings">Settings</string>
 
+    <string name="title">Kanyetetes</string>
+    <string name="dark_mode">"DondaView"</string>
+    <string name="info">Truth</string>
+    <string name="API_error">No connection to Kanye</string>
+    <string name="about">About this app:</string>
+    <string name="about2">Drops random Yeets</string>
+    <string name="no_quotes">No yeets available!</string>
 </resources>
