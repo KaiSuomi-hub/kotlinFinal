@@ -14,7 +14,7 @@ data class QuoteResponse(val quote: String)
 /**
  * Base URL for the quote API.
  */
-const val BASE_URL = "https://kanye.rest/"
+const val BASE_URL = "https://api.kanye.rest//"
 
 /**
  * Interface defining the quote API endpoints.

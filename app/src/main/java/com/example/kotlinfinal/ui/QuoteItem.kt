@@ -16,7 +16,7 @@ fun QuoteItem(quote: String) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 8.dp,),
         shape = MaterialTheme.shapes.medium,
         elevation = CardDefaults.cardElevation(4.dp),
         colors = CardDefaults.cardColors(
@@ -27,7 +27,7 @@ fun QuoteItem(quote: String) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp)
+                .padding(16.dp, vertical = 158.dp)
         ) {
             Text(
                 text = "Quote: ${quote}",

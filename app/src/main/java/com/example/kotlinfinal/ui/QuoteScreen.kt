@@ -37,7 +37,7 @@ fun QuoteScreen(viewModel: QuoteViewModel = viewModel(), modifier: Modifier = Mo
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator(
                         modifier = Modifier
-                            .size(44.dp)
+                            .size(100.dp)
                             .padding(16.dp)
                     )
                 }
