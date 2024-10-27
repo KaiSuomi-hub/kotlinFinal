@@ -3,7 +3,7 @@ package com.example.kotlinfinal.viewmodel
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.kotlinfinal.model.theQuote
+import com.example.kotlinfinal.model.TheQuote
 import com.example.kotlinfinal.model.QuoteApi
 import kotlinx.coroutines.launch
 import android.util.Log
@@ -46,12 +46,12 @@ class QuoteViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val quoteApi = QuoteApi.getInstance()
-                val response = theQuote(quoteApi.getQuote().quote)
+                val response = TheQuote(quoteApi.getQuote().quote)
 
                 Log.d("QuoteModel", "API response: $response")
-                Log.d("QuoteViewModel", "Quote is : ${response.getQuote()}")
+                Log.d("QuoteViewModel", "Quote is : ${response.quote}")
 
-                showableQuote.value = response.getQuote()
+                showableQuote.value = response.quote
             } catch (e: Exception) {
                 error.value = e.message
                 Log.e("QuoteViewModel", "Error fetching data: ${e.message}")

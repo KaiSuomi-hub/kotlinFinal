@@ -6,10 +6,8 @@ import retrofit2.http.GET
 
 data class QuoteResponse(val quote: String)
 
-data class theQuote(val quote: String) {
-    fun getQuote(): String {
-        return quote }
-}
+data class TheQuote(val quote: String)
+
 const val BASE_URL = "https://kanye.rest"
 
 interface QuoteApi {
@@ -17,16 +15,14 @@ interface QuoteApi {
     suspend fun getQuote(): QuoteResponse
 
     companion object {
-        var quoteService: QuoteApi? = null
-
-        fun getInstance(): QuoteApi {
-            if (quoteService == null) {
-                quoteService = Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build().create(QuoteApi::class.java)
-            }
-            return quoteService!!
+        private val quoteService: QuoteApi by lazy {
+            Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(QuoteApi::class.java)
         }
+
+        fun getInstance(): QuoteApi = quoteService
     }
 }
